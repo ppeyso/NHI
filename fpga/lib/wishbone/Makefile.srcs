@@ -1,0 +1,12 @@
+#
+# Copyright 2020 Nasim Hamrah Industries
+#
+
+##################################################
+# Wishbone Perifs
+##################################################
+WISHBONE_SRCS = $(abspath $(addprefix $(BASE_DIR)/../lib/wishbone/, \
+simple_uart_rx.v \
+simple_uart_tx.v \
+simple_uart.v \
+))
