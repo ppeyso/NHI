@@ -1,0 +1,9 @@
+# UCF file for the Posedge
+
+# Clock and Reset pins
+NET "CLOCK"       LOC = P50;   # 24MHz on-board clock
+NET "RESET_N"     LOC = p133;  # active-low USER_PB button
+
+# USB<->UART Pins
+NET "UART_TX"           LOC = p104;  
+NET "UART_RX"           LOC = p105;

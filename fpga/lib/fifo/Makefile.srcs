@@ -1,0 +1,14 @@
+#
+# Copyright 2020 Nasim Hamrah Industries
+#
+
+##################################################
+# FIFO Sources
+##################################################
+FIFO_SRCS = $(abspath $(addprefix $(BASE_DIR)/../lib/fifo/, \
+axi_fifo.v \
+axi_fifo_bram.v \
+axi_fifo_flop.v \
+axi_fifo_flop2.v \
+axi_fifo_short.v \
+))

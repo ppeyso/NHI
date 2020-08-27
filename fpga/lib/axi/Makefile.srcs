@@ -1,0 +1,11 @@
+#
+# Copyright 2020 Nasim Hamrah Industries
+#
+
+##################################################
+# AXI Sources
+##################################################
+AXI_SRCS = $(abspath $(addprefix $(BASE_DIR)/../lib/axi/, \
+axis_uart_rx_wrapper.v \
+axis_uart_tx_wrapper.v \
+))

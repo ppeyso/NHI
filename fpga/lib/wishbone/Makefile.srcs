@@ -6,7 +6,9 @@
 # Wishbone Perifs
 ##################################################
 WISHBONE_SRCS = $(abspath $(addprefix $(BASE_DIR)/../lib/wishbone/, \
-simple_uart_rx.v \
-simple_uart_tx.v \
 simple_uart.v \
+simple_uart_rx.v \
+simple_uart_tb.v \
+simple_uart_trx_tb.v \
+simple_uart_tx.v \
 ))

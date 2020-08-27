@@ -1,0 +1,12 @@
+#
+# Copyright 2020 Nasim Hamrah Industries
+#
+
+##################################################
+# CONTROL Lib Sources
+##################################################
+CONTROL_LIB_SRCS = $(abspath $(addprefix $(BASE_DIR)/../lib/control/, \
+por_gen.v \
+ram_2port.v \
+ram_2port_impl.vh \
+))

@@ -1,0 +1,35 @@
+# UCF file for the Posedge
+
+# Clock and Reset pins
+NET "CLOCK"       LOC = P50;   # 24MHz on-board clock
+NET "RESET_N"     LOC = p133;  # active-low USER_PB button
+
+# USB<->UART Pins
+NET "UART_TX"           LOC = p104;  
+NET "UART_RX"           LOC = p105;
+
+# dip-switches
+NET "dip_switch[0]" LOC = P51;
+NET "dip_switch[1]" LOC = P48;
+NET "dip_switch[2]" LOC = P55;
+NET "dip_switch[3]" LOC = P56;
+NET "dip_switch[4]" LOC = P57;
+NET "dip_switch[5]" LOC = P58;
+NET "dip_switch[6]" LOC = P66;
+NET "dip_switch[7]" LOC = P59;
+
+# Push-Buttons
+NET "push_button[0]" LOC = P78;
+NET "push_button[1]" LOC = P75;
+NET "push_button[2]" LOC = P67;
+NET "push_button[3]" LOC = P74;
+
+# LEDs
+NET "leds[7]"  LOC = P120;
+NET "leds[6]"  LOC = P121;
+NET "leds[5]"  LOC = P123;
+NET "leds[4]"  LOC = P124;
+NET "leds[3]"  LOC = P126;
+NET "leds[2]"  LOC = P127;
+NET "leds[1]"  LOC = P131;
+NET "leds[0]"  LOC = P132;
