@@ -1,0 +1,2 @@
+COMPILED_SDF_FILE = "../../implement/results/routed.sdf.X",
+SCOPE = clk_24MHz_8MHz_tb.dut;
