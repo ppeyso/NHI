@@ -1,0 +1,11 @@
+#
+# Copyright 2020 Nasim Hamrah Industries
+#
+
+##################################################
+# ASK Sources
+##################################################
+ASK_SRCS = $(abspath $(addprefix $(BASE_DIR)/../lib/ask/, \
+simple_ask_uart_tx.v \
+simple_ask_uart_tx_tb.v \
+))

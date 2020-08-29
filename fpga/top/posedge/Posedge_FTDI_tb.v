@@ -64,11 +64,29 @@ module Posedge_FTDI_tb ( );
       .TX_SIZE(TX_SIZE),
       .clkdiv_tx(clkdiv_tx)
    ) Posedge_FTDI_LoopBack (
+      // Clock and Reset pins
       .CLOCK(CLOCK), .RESET_N(RESET_N),
-      // Input RX port
-      .UART_RX(UART_RX),
-      // Output TX port
-      .UART_TX(UART_TX_LoopBack)
+      // USB<->UART Pins
+      .UART_TX(UART_TX_LoopBack), .UART_RX(UART_RX)
+   );
+
+   wire UART_TX_ASK;
+   wire W3_8, W3_7, W3_6;
+   Posedge_FTDI_TX #(
+      .RX_SIZE(RX_SIZE),
+      .clkdiv_rx(clkdiv_rx),
+      .TX_SIZE(TX_SIZE),
+      .clkdiv_tx(clkdiv_tx),
+      .ila("off") // "on" or "off"
+   ) Posedge_FTDI_TX (
+      // Clock and Reset pins
+      .CLOCK(CLOCK), .RESET_N(RESET_N),
+      // USB<->UART Pins
+      .UART_TX(UART_TX_ASK), .UART_RX(UART_RX),
+      // WING 3
+      .W3_8(W3_8),
+      .W3_7(W3_7),
+      .W3_6(W3_6)
    );
 
 endmodule // Posedge_FTDI_tb

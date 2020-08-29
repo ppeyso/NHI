@@ -19,7 +19,7 @@ module Posedge_FTDI_MegaWing #(
    // Push-Buttons
    input [3:0] push_button,
    // LEDs
-   output reg [7:0] leds,
+   output reg [7:0] leds
 );
 
    wire reset = ~RESET_N; // active-high
