@@ -6,8 +6,8 @@
 
 
 
-module simple_ask_uart_tx
-    #(parameter ask_tx_length = 2,
+module model_ask_uart_tx
+    #(parameter ask_tx_length = 8,
       parameter SIZE=0)
     (input clk, input rst,
      input [7:0] fifo_in, input fifo_write, output [15:0] fifo_level, output fifo_full, 
@@ -76,11 +76,8 @@ module simple_ask_uart_tx
 
    always @(*)
      if( tx == 1'b0 )
-       if( (baud_ctr_reg < ({2'b00, clkdiv[15:2]}+16'd1)) | ( ({1'b0, clkdiv[15:1]} < baud_ctr_reg) & (baud_ctr_reg < ({1'b0, clkdiv[15:1]}+{2'b00, clkdiv[15:2]}+16'd1)) ) )
-        ask_tx <= 2'b01;
-       else
-        ask_tx <= 2'b11;
+       ask_tx <= $rtoi($floor($pow(2.0,ask_tx_length-1)*$sin(4*3.14*($itor(baud_ctr_reg)-1.0)/($itor(clkdiv)))));
      else
-       ask_tx <= 2'b00;
+       ask_tx <= 0;
 
-endmodule // simple_ask_uart_tx
+endmodule // model_ask_uart_tx

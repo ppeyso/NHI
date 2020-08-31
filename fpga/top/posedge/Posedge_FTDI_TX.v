@@ -73,6 +73,8 @@ module Posedge_FTDI_TX #(
    wire tready_ask;
    wire [1:0] ask_tx;
    axis_ask_uart_tx_wrapper #(
+      .ask_core_type("simple"),
+      .ask_tx_length(2),
       .TX_SIZE(TX_SIZE),
       .clkdiv_tx(clkdiv_tx)
    ) axis_ask_uart_tx_wrapper (
