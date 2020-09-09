@@ -1,0 +1,13 @@
+#
+# Copyright 2020 Nasim Hamrah Industries
+#
+
+##################################################
+# DSP Sources
+##################################################
+DSP_SRCS = $(abspath $(addprefix $(BASE_DIR)/../lib/dsp/, \
+BoundedIntegrator.v \
+BoundedIntegrator_tb.v \
+DelayFilter.v \
+SumDelayFilter.v \
+))
