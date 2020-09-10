@@ -6,7 +6,11 @@
 # CONTROL Lib Sources
 ##################################################
 CONTROL_LIB_SRCS = $(abspath $(addprefix $(BASE_DIR)/../lib/control/, \
+controlled_por_gen.v \
 por_gen.v \
 ram_2port.v \
 ram_2port_impl.vh \
+reset_sync.v \
+synchronizer.v \
+synchronizer_impl.v \
 ))

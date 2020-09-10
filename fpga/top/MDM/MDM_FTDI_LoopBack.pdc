@@ -1,0 +1,34 @@
+# Physical Design Constraints PDC file for the MDM board
+# FPGA:	A3P125-VQ100-GRADE1
+
+# Clock pin
+set_io CLOCK \
+   -pinname 65 \
+   -fixed yes \
+   -DIRECTION Input \
+   -iostd LVCMOS33;    # 4MHz or 8MHz on-board clock
+
+set_io RESET_N
+   -pinname 30 \
+   -fixed yes \
+   -DIRECTION Input \
+   -iostd LVCMOS33;    # active-low MAX809TTRG
+
+# USB<->UART Pins
+set_io UART_TX \
+   -pinname 58 \
+   -fixed yes \
+   -DIRECTION Output \
+   -iostd LVCMOS33;    # DBG TxD
+
+set_io UART_RX \
+   -pinname 57 \
+   -fixed yes \
+   -DIRECTION Input \
+   -iostd LVCMOS33;    # DBG RxD
+
+set_io LED \
+   -pinname 7 \
+   -fixed yes \
+   -DIRECTION Output \
+   -iostd LVCMOS33;    # LED
