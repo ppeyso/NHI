@@ -5,13 +5,13 @@
 //
 
 module MDM_FTDI_LoopBack #(
-   parameter RX_SIZE = 4,
+   parameter RX_SIZE = 1,
    parameter clkdiv_rx = 50,
-   parameter TX_SIZE = 4,
+   parameter TX_SIZE = 1,
    parameter clkdiv_tx = 50
 )(
    // Clock and Reset Pins
-   input CLOCK, input RESET_N,
+   input CLOCK, //input RESET_N,
    // USB<->UART Pins
    output UART_TX, input UART_RX,
    // LED Pin
@@ -19,19 +19,10 @@ module MDM_FTDI_LoopBack #(
 );
 
    assign LED = ~UART_RX;
-   // assign LED = ~UART_TX;
-
-   wire reset;
-   reset_sync reset_sync (
-      .clk(CLOCK),
-      .reset_in(~RESET_N),
-      .reset_out(reset)
-   );
 
    wire rst;
-   controlled_por_gen controlled_por_gen (
+   por_gen por_gen (
       .clk(CLOCK),
-      .reset(reset),
       .reset_out(rst)
    );
 

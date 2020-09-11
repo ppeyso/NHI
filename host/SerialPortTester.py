@@ -116,7 +116,7 @@ def LoopBackRandomTest(port, baudrate):
     ser.close()
     return error'''
 
-portName='/dev/ttyUSB1'
+portName='/dev/ttyUSB0'
 baudrateValue = 80000
 print("Number of Errors in Loop Back Counter Test : ", LoopBackCounterTest(portName, baudrateValue))
 print("Number of Errors in Loop Back Random Test : ", LoopBackRandomTest(portName, baudrateValue))
