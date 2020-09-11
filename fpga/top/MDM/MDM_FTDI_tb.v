@@ -25,7 +25,7 @@ module MDM_FTDI_tb ( );
       CLOCK <= ~CLOCK;
    end
    always @(*) begin
-      #1500;
+      #1313;
       RESET_N <= ~RESET_N;
       #310;
       RESET_N <= ~RESET_N;
@@ -84,7 +84,6 @@ module MDM_FTDI_tb ( );
    );
 
    wire UART_TX_LoopBack;
-   wire LED;
    MDM_FTDI_LoopBack #(
       .RX_SIZE(RX_SIZE),
       .clkdiv_rx(clkdiv_rx),
@@ -95,6 +94,18 @@ module MDM_FTDI_tb ( );
       .CLOCK(CLOCK), .RESET_N(RESET_N),
       // USB<->UART Pins
       .UART_TX(UART_TX_LoopBack), .UART_RX(UART_RX),
+      // LED
+      .LED()
+   );
+
+   wire LED;
+   MDM_SecondCounter #(
+      .CLOCK_Fre(400)
+   ) MDM_SecondCounter (
+      // Clock and Reset Pins
+      .CLOCK(CLOCK), .RESET_N(RESET_N),
+      // USB<->UART Pins
+      .UART_TX(), .UART_RX(),
       // LED
       .LED(LED)
    );
