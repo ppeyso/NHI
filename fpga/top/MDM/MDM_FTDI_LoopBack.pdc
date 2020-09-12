@@ -27,6 +27,20 @@ set_io UART_RX \
    -DIRECTION Input \
    -iostd LVCMOS33;    # DBG RxD
 
+# Intermediate Frequency Modulation
+set_io MULP \
+   -pinname 6 \
+   -fixed yes \
+   -DIRECTION Output \
+   -iostd LVCMOS33;    # MULP
+
+set_io MULN \
+   -pinname 5 \
+   -fixed yes \
+   -DIRECTION Output \
+   -iostd LVCMOS33;    # MULN
+
+# LED Pin
 set_io LED \
    -pinname 7 \
    -fixed yes \

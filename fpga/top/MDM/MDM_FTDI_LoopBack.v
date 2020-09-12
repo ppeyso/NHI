@@ -14,6 +14,8 @@ module MDM_FTDI_LoopBack #(
    input CLOCK, //input RESET_N,
    // USB<->UART Pins
    output UART_TX, input UART_RX,
+   // Intermediate Frequency Modulation
+   output MULP, output MULN,
    // LED Pin
    output LED
 );
@@ -54,5 +56,23 @@ module MDM_FTDI_LoopBack #(
       // Output TX port
       .tx(UART_TX)
    );
+
+   wire [1:0] ask_tx;
+   axis_ask_uart_tx_wrapper #(
+      .ask_core_type("simple"),
+      .ask_tx_length(2),
+      .TX_SIZE(TX_SIZE),
+      .clkdiv_tx(clkdiv_tx)
+   ) simple_axis_ask_uart_tx_wrapper (
+      .clk(CLOCK), .rst(rst),
+      // AXI Stream ports
+      .i_tdata(tdata),
+      .i_tvalid(tvalid),
+      .i_tready(),
+      // ASK output port
+      .ask_tx(ask_tx)
+   );
+   assign MULP = ask_tx[0];
+   assign MULN = ask_tx[1];
 
 endmodule // MDM_FTDI_LoopBack
